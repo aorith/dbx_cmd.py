@@ -36,7 +36,7 @@ PASSWORD = <password without quotes, only used in Symmetric encryption>
 The idea is to have it scheduled in your crontab to make nightly backups.
 
 ## Backup
-Its purpose is to backup entire folders, so imagine you have this folder on your server /media/data/Photos with all your personal photos.
+The script backups entire folders, so imagine you have this folder on your server /media/data/Photos with all your personal photos.
 
 Run:
 
