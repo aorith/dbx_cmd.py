@@ -11,7 +11,7 @@ You'll need the following python packages:
 
 `pip install dropbox --user`
 
-Open dbx_cmd.py and edit the following variables if needed:
+Open dbx_cmd.py and edit the following variables as needed:
 ```python
 SYMMETRIC_ENCRYPTION = False
 TMP_PATH = os.path.join('/tmp')
@@ -30,6 +30,7 @@ TOKEN = <dropbox api token>
 USERID = <userid of the recipient if using Asymmetric encryption, for ex: john@maildir.com>
 PASSWORD = <password without quotes, only used in Symmetric encryption>
 ```
+To obtain a Dropbox API key go to [https://www.dropbox.com/developers/apps](https://www.dropbox.com/developers/apps)
 
 # Usage
 
