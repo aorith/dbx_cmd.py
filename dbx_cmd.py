@@ -17,6 +17,7 @@ import dropbox
 # Settings
 SYMMETRIC_ENCRYPTION = False
 TMP_PATH = os.path.join(os.environ['HOME'], 'tmp')
+LOGS_PATH = os.path.join(os.environ['HOME'], 'logs')
 SECRETS_CFG = os.path.join(os.environ['HOME'], 'secret/dbx_cmd.cfg')
 """ Config file example:
 [DBX]
@@ -444,6 +445,8 @@ def remote_list(dbx):
 
 
 def init():
+    if not os.path.isdir(TMP_PATH):
+        os.mkdir(TMP_PATH)
     # Arguments
     parser = argparse.ArgumentParser(description='Dropbox manager')
     subparsers = parser.add_subparsers(dest='mode_option')
@@ -465,15 +468,13 @@ def init():
     args = parser.parse_args()
 
     # logger settings
+    if not os.path.isdir(LOGS_PATH):
+        os.mkdir(LOGS_PATH)
     logger = logging.getLogger(__name__)
     formatter = logging.Formatter('[%(asctime)s][%(levelname)s] %(message)s')
     if args.mode_option == 'backup':
         logname = 'dbx_cmd.py_' + args.remote_folder[0].split("/")[-1] + '.log'
-        logpath = os.path.join(
-            os.environ['HOME'],
-            'logs',
-            logname
-        )
+        logpath = os.path.join(LOGS_PATH, logname)
         handler = RotatingFileHandler(logpath, maxBytes=102400, backupCount=2)
         handler.setFormatter(formatter)
         logger.addHandler(handler)

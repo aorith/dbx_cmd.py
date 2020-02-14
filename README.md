@@ -14,7 +14,8 @@ You'll need the following python packages:
 Open dbx_cmd.py and edit the following variables as needed:
 ```python
 SYMMETRIC_ENCRYPTION = False
-TMP_PATH = os.path.join('/tmp')
+TMP_PATH = os.path.join(os.environ['HOME'], 'tmp')
+LOGS_PATH = os.path.join(os.environ['HOME'], 'logs')
 SECRETS_CFG = os.path.join(os.environ['HOME'], 'secret/dbx_cmd.cfg')
 ```
 * SYMMETRIC_ENCRYPTION --> If set to True it will use symmetric encryption [Symmetric-key algorithm](https://en.wikipedia.org/wiki/Symmetric-key_algorithm). Files will be encrypted using the password defined in the .cfg file.
@@ -73,7 +74,7 @@ To download stored files in Dropbox to your current path use:
 
 # Logs
 
-Logs are stored by default in `$HOME/logs`, one log is created for each unique backup folder. You can easily change the path in the script.
+Logs are stored by default in `$HOME/logs`, one log is created for each unique backup folder. You can easily change the default path modifying LOGS_PATH variable.
 
 # How does it work
 
