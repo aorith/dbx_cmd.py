@@ -16,7 +16,7 @@ import dropbox
 
 # Settings
 SYMMETRIC_ENCRYPTION = False
-TMP_PATH = os.path.join('/tmp')
+TMP_PATH = os.path.join(os.environ['HOME'], 'tmp')
 SECRETS_CFG = os.path.join(os.environ['HOME'], 'secret/dbx_cmd.cfg')
 """ Config file example:
 [DBX]
@@ -84,6 +84,7 @@ def create_tar(fpath, tar_path):
         txt = "Failed to tar file.\nException of type {0}. Arguments:\n{1!r}"
         msg = txt.format(type(ex).__name__, ex.args)
         logger.error(msg)
+        os.remove(tar_path)
         sys.exit(1)
     return tar.name
 
