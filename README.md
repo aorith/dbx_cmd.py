@@ -1,3 +1,7 @@
+Deprecated
+==========
+Now I'm using this instead: <https://github.com/aorith/st-backup>
+
 # dbx_cmd.py
 Upload encrypted backups to Dropbox
 
